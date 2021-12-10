@@ -25,7 +25,7 @@ import { defineAsyncComponent } from 'vue';
         <textarea placeholder="¿Qué sucedió hoy?"></textarea>
     </div>
 
-    <Fab />
+    <Fab icon="fa-save"/>
 
     <img src="https://www.construyehogar.com/wp-content/uploads/2017/11/Dise%C3%B1o-fachada-casa-moderna.jpg" 
         alt="entry-picture"
