@@ -9,7 +9,7 @@ import { defineAsyncComponent } from 'vue';
             </div>
 
             <div>
-                <button class="btn btn-danger mx-2">
+                <button v-if="entry.id" @click="onDeleteEntry" class="btn btn-danger mx-2">
                     Borrar
                     <i class="fa fa-trash-alt"></i>
                 </button>
@@ -73,7 +73,7 @@ export default {
         }
     },
     methods: {
-        ...mapActions( 'journal', ['updateEntries', 'createEntry']),
+        ...mapActions( 'journal', ['updateEntries', 'createEntry', 'deleteEntry']),
         
         loadEntry() {
             let entry
@@ -100,6 +100,11 @@ export default {
                 const id = await this.createEntry( this.entry )
                 this.$router.push({ name: 'entry', params: { id }})
             }  
+        },
+        async onDeleteEntry() {
+            this.deleteEntry( this.entry.id )
+            // redirect user
+            this.$router.push({ name: 'no-entry' })
         }
     },
     created() {
